@@ -1,0 +1,250 @@
+1) List the branch names of all branches that gave loan.
+-------
+SELECT branch_name
+FROM loan
+
+
+
+2) List the names of all branches in the loan without repetition.
+---------
+SELECT DISTINCT branch_name
+FROM loan
+
+
+
+3) List all details of loan by increasing the amount multiplied by 500 of each loan.
+-------
+SELECT loan_number, branch_name, amount * 500
+FROM loan
+
+
+
+4) Find all loan number for loans made at the “S street” branch with loan amounts greater
+than Rs. 1,200.
+---------
+SELECT loan_number
+FROM loan
+WHERE branch_name = "S Street"
+	  AND amount>1200
+
+	  
+	  
+5) Find the loan number of those loans with loan amounts between Rs. 900 and Rs. 1600.
+----------
+SELECT loan_number
+FROM loan
+WHERE amount<1600
+	  AND amount>=900
+
+SELECT loan_number
+FROM loan
+WHERE amount BETWEEN 900 AND 1600
+
+
+
+6) Find the name, loan number and loan amount of all customers having a loan at the
+“S street” branch.
+-----
+SELECT customer_name, B.loan_number, L.amount
+FROM borrower B, loan L
+WHERE B.loan_number = L.loan_number
+      AND branch_name = "S Street"
+	  
+	  
+	  
+!!! 7) Find the Cartesian product of borrower and loan.
+-------
+SELECT *
+FROM borrower, loan
+
+
+
+8) Find the name, loan number and loan amount of all customers having a loan at the S
+street branch.
+------
+SELECT customer_name, B.loan_number, L.amount
+FROM borrower B, loan L
+WHERE B.loan_number = L.loan_number
+      AND branch_name = "S Street"
+	  
+	  
+	  
+9) Find the name, loan number and loan amount of all customers (rename the column name loan_number as loan_id). Order by name. // Renaming works without quotes(proboably if no spaces are present in the attribute name)
+-------
+SELECT customer_name, B.loan_number AS "loan_id", L.amount
+FROM borrower B, loan L
+WHERE B.loan_number = L.loan_number
+ORDER BY customer_name
+
+
+
+10) Find the customer names and their loan numbers for all customers having a loan at some branch.
+-----
+SELECT *
+FROM borrower
+
+
+
+!!! 11) Find the names of all branches that have greater assets than some branch located in Hyderabad.
+--------
+SELECT b1.branch_name
+FROM branch b1, branch b2
+WHERE b2.branch_city = "Hyderabad"
+	  AND b1.assets > b2.assets
+
+	  
+	  
+!!! 12) Find the names of all customers whose street includes the substring “Street”. // Use LIKE whenever pattern matching
+---------
+SELECT customer_name
+FROM customer
+WHERE customer_street LIKE "%Street"
+
+
+
+13) List in alphabetic order the names of all customers having a loan in “S Street” branch. Arrange in the order of descending loan amount within customer names. // Implies if customer_name same, then order by descending loan amount. Also IMP - no depth in MySQL, only combination of ORDER BY? VERIFY. Should I use aliases for each attribute to make my intent clear?
+---------
+SELECT customer_name
+FROM borrower B, loan L
+WHERE B.loan_number = L.loan_number
+	  AND branch_name = "S Street"
+ORDER BY customer_name, amount DESC
+
+
+
+14) Find bank accounts with a balance under Rs. 700 order by increasing bank balance.
+---------
+SELECT account_number, balance
+FROM account
+WHERE balance < 700
+ORDER BY balance ASC
+
+
+
+15) Get the accounts with their balance updated in the year 2012. Display them by decreasing order of balance.
+----------
+SELECT account_number, date, amount
+FROM account
+WHERE YEAR(date) = 2012
+ORDER BY balance DESC
+
+
+
+16)Retrieve a list of all bank branch details, ordered by branch city, with each city’s branches listed in reverse order of holdings.
+--------
+SELECT *
+FROM branch
+ORDER BY branch_city, assets DESC
+
+
+
+17) Find all customers who have a loan, an account, or both.
+------------
+SELECT customer_name
+FROM customer
+
+
+
+18) Find all customers who have both a loan and an account.
+----------
+SELECT customer_name
+FROM borrower
+
+
+
+19) Find the average account balance at the S Street branch.
+------------
+SELECT AVG(balance)
+FROM account
+WHERE branch_name = "S Street"
+
+
+
+20) Find the number of depositors for each branch.
+--------
+SELECT branch_name, COUNT(A.account_number)
+FROM depositor D, account A
+WHERE D.account_number = A.account_number
+GROUP BY branch_name
+
+
+
+21) Find the name of customers from Patna city with balance along with the name of day and month on which the account is updated.
+----------
+SELECT C.customer_name, A.balance, DAYNAME(A.date), MONTHNAME(A.date)
+FROM customer C, depositor D, account A
+WHERE C.customer_name = D.customer_name
+	  AND D.account_number = A.account_number
+	  AND C.customer_city = "Patna"
+
+	  
+	  
+22) Find the names of all branches where the average account balance is more than Rs. 600.
+----------
+SELECT branch_name, AVG(balance)
+FROM account
+GROUP BY branch_name
+HAVING AVG(balance) > 600
+
+
+
+23) Find all customers whose address is unknown.
+----------
+SELECT customer_name
+FROM customer
+WHERE customer_street IS NULL
+	  OR customer_city IS NULL
+
+	  
+	  
+24) Find all branches that have greater assets than some branch located in Delhi.
+---------
+SELECT b1.branch_name
+FROM branch b1, branch b2
+WHERE b2.branch_city = "Delhi"
+	  AND b1.assets > b2.assets
+	  
+	  
+	  
+25) Increase all accounts with balances over Rs. 500 by 10%, all other accounts receive 5%.(execute two update statements)
+---------
+UPDATE account SET balance = balance*1.10
+WHERE balance > 500;
+
+UPDATE account SET balance = balance*1.05
+WHERE balance <= 500;
+
+
+
+26) Add a new attribute “country” to table branch.
+----------
+ALTER TABLE branch ADD country VARCHAR(15);
+
+
+
+27)Change the domain of the “branch_city” attribute of the branch table to varchar (30).
+----------
+ALTER TABLE branch
+MODIFY COMLUMN branch_city VARCHAR(30);
+
+28) Make the “branch_city” of the branch table has a default value of ‘Mumbai’.
+---------
+ALTER TABLE branch
+MODIFY COMLUMN branch_city DEFAULT;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+28) Make the “branch_city” of the branch table has a default value of ‘Mumbai’.

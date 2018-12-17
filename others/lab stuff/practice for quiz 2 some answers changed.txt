@@ -1,0 +1,75 @@
+6)  Find  the  name,  loan  number  and  loan  amount  of  all  customers  having  a  loan  at  the “S street” branch.
+
+SELECT customer_name, loan_number, amount
+FROM   loan AS L, borrower AS B
+WHERE  L.loan_number = B.loan_number
+       AND branch_name = "S Street";
+
+
+7)  Find the Cartesian product of borrower and loan.
+
+SELECT *
+FROM   borrower, loan
+
+
+8)  Find  the name, loan number and loan  amount  of all  customers having  a loan  at  the S 
+street branch. 
+9)  Find the name, loan number and loan amount of all customers (rename the column name 
+loan_number as loan_id). Order by name. 
+10) Find the customer names and their loan numbers for all customers having a loan at some 
+branch. 
+11) Find  the  names  of  all  branches  that  have  greater  assets  than  some  branch  located  in 
+Hyderabad. 
+12) Find the names of all customers whose street includes the substring “Street”. 
+13) List in alphabetic order the names of all customers having a loan in “S Street” branch. 
+Arrange in the order of descending loan amount within customer names.  
+14) Find bank accounts with a balance under Rs. 700 order by increasing bank balance. 
+15) Get the accounts with their balance updated in the year 2012. Display them by decreasing 
+order of balance. 
+16) Retrieve  a  list  of  all  bank  branch  details,  ordered  by  branch  city,  with  each  city’s 
+branches listed in reverse order of holdings. 
+17) Find all customers who have a loan, an account, or both. 
+18) Find all customers who have both a loan and an account. 
+19) Find the average account balance at the S Street branch. 20) Find the number of depositors for each branch. 
+21) Find the name of customers from Patna city with balance along with the name of day and 
+month on which the account is updated. 
+22) Find the names of all branches where the average account balance is more than Rs. 600. 
+23) Find all customers whose address is unknown.  
+24) Find all branches that have greater assets than some branch located in Delhi. 
+
+
+
+
+25) Increase all accounts with balances over Rs. 500 by 10%, all other accounts receive 5%. 
+(execute two update statements) 
+
+UPDATE account
+SET amount = amount * 1.1
+WHERE amount > 500
+
+
+
+
+26) Add a new attribute “country” to table branch. 
+
+ALTER TABLE branch ADD COLUMN country VARCHAR(15)
+
+
+
+
+
+
+27) Change the domain of the “branch_city” attribute of the branch table to varchar (30). 
+
+ALTER TABLE branch MODIFY COLUMN branch_city VARCHAR(30)
+
+
+
+
+
+
+28) Make the “branch_city” of the branch table has a default value of ‘Mumbai’.
+
+ALTER TABLE branch ALTER COLUMN branch_city SET DEFAULT "Mumbai"
+
+ALTER TABLE branch MODIFY COLUMN branch_city VARCHAR(15) DEFAULT "Mumbai" 

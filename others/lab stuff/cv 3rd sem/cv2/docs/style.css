@@ -1,0 +1,105 @@
+body, h2, h3{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+body {
+  font-family: "Lucida Sans", sans-serif;
+  font-size: 24px;
+  width: 80%;
+  margin: auto;
+  background-image: url(tex1.png);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+  min-width: 600px;
+}
+
+#header {
+  color: lightgreen;
+  background-color: green;
+  text-align: center;
+  top: 0;
+}
+
+#header h2 {
+  font-size: 48px;
+  padding: 20px;
+}
+
+#content {
+  padding: 5%;
+  padding-top: 40px;
+}
+
+div #education,#skills,#achievements {
+  padding-bottom: 40px;
+}
+
+body h3 {
+  color: green;
+  font-size: 36px;
+  padding-left: 20px;
+  border: 2px solid darkgreen;
+  border-bottom: 5px solid darkgreen;
+}
+
+table {
+  color: #00a000;
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 10px;
+  border-spacing: 0;
+  border: 2px solid green;
+}
+
+td, th {
+  padding: 7px 10px 10px 10px;
+  border: 1px solid #bfdfbf;
+}
+
+th {
+  text-transform: uppercase;
+  border-bottom: 5px solid green;
+}
+
+
+tr:hover {
+  background-color: #bfffbf;
+  transition: 0.1s;
+}
+
+.even {
+  background-color: #cfffcf;
+}
+
+.level1 {
+  color: #00a000;
+  font-size: 24px;
+  padding-left: 40px;
+}
+
+.level1 li {
+  padding-top: 10px;
+}
+
+.level2 {
+  color: #8f8f8f;
+  font-size: 20px;
+  padding-left: 0px;
+  list-style: none;
+}
+
+.level2 li {
+  padding-top: 0px;
+}
+
+#footer {
+  color: lightgreen;
+  background-color: darkgreen;
+  padding: 5px;
+  padding-left: 40px;
+  font-size: 24px;
+}

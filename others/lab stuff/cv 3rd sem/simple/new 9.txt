@@ -1,0 +1,16 @@
+class / new tag for the description
+Name        Ayaskant Panigrahi
+DOB         16 Jul 2017
+Nationality Indian
+Address     hostel address?
+Mobile      8989034362
+Email       2016059@iiitdmj.ac.in
+Objective   A highly motivated, skilled,methodical, honest, committed to new training and learning, adapt in managing interpersonal relationships. Mechanical Engineering Graduate with adequate experience is interested in obtaining a position as a mechanical engineer in a prestigious and suitable organization.
+Education   Most recent first
+Employment
+Skills
+Other Experiences
+Awards
+ntse
+kvpy
+Interests

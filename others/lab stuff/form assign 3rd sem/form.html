@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order your TShirt online!</title>
+    <link rel="stylesheet" href="docs/style.css">
+  </head>
+  <body>
+    <div id="header">
+      <h2>Order Form</h2>
+      <h5>Please fill in your information and we'll be sending your order in no time!</h5>
+    </div>
+    <form>
+      <table>
+        <tr>
+          <td><label>Name *</label></td>
+          <td><input type="text" placeholder="First" name="fname" required/></td>
+          <td><input type="text" placeholder="Last" name="lname" required/></td>
+        </tr>
+        <tr>
+          <td><label>Email *</label></td>
+          <td><input type="text" placeholder="username@example.com" name="email" required/></td>
+        </tr>
+        <tr>
+          <td><label>T-shirt model *</label></td>
+          <td colspan="2"><!--set hover for each label-->
+            <label>
+              <img src="docs/des1.jpg"/>
+              <input type="radio" name="design" value="des1" required/>
+            </label>
+            <label>
+              <img src="docs/des2.jpg"/>
+              <input type="radio" name="design" value="des2" required/>
+            </label>
+            <label>
+              <img src="docs/des3.jpg"/>
+              <input type="radio" name="design" value="des3" required/>
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Size</label></td>
+          <td>
+            <select name="size">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Quantity *</label></td>
+          <td><input type="text" name="qty" required/></td>
+        </tr>
+        <tr>
+          <td><label>Delivery Date *</label></td>
+          <td><input type="text" name="qty" placeholder="MM/DD/YYYY" required/></td>
+        </tr>        
+        <tr>
+          <td><label>Delivery Address *</label></td>
+          <td colspan="2">
+            <input type="text" name="strAddr1" placeholder="Street address line 1" required/>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="2">
+            <input type="text" name="strAddr2" placeholder="Street address line 2"/>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><input type="text" name="city" placeholder="City"/></td>
+          <td><input type="text" name="region" placeholder="Region"/></td>
+        </tr>
+        <tr>
+        <td></td>
+          <td><input type="text" name="pincode" placeholder="Pincode" required/></td>
+          <td><input type="text" name="country" placeholder="Country"/></td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center"><input type="submit" value="Purchase"></td>
+        </tr>
+      </table>
+    </form>
+    <div id="footer">
+      <h3>Roll Number: 2016059</h3>
+    </div>
+  </body>
+</html>

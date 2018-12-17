@@ -1,0 +1,38 @@
+body {
+  width: 600px;
+  margin: auto;
+  font-size: 12pt;
+  padding: 7px 10px 10px 10px;
+  color: #00a000;
+  line-height: 1.5em;
+}
+
+table {
+  color: #00a000;
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 10px;
+  border-spacing: 0;
+  border: 2px solid green;
+  font-size: 12pt;
+}
+
+td, th {
+  padding: 7px 10px 10px 10px;
+  border: 1px solid #bfdfbf;
+}
+
+th {
+  border-bottom: 5px solid green;
+}
+
+
+tr:hover {
+  background-color: #bfffbf;
+  transition: 0.1s;
+}
+
+#fail {
+  border-style: solid;
+  border-width: 2px;
+}

@@ -1,0 +1,122 @@
+CREATE TABLE customer
+(customer_name VARCHAR(15) NOT NULL,
+ customer_street VARCHAR(15) ,
+ customer_city VARCHAR(15) NOT NULL,
+ PRIMARY KEY(customer_name)
+);
+ 
+CREATE TABLE branch
+(
+    branch_name VARCHAR(15) NOT NULL,
+    branch_city VARCHAR(15),
+    assets INT(8),
+    PRIMARY KEY(branch_name)
+    );
+
+CREATE TABLE account
+(
+    account_number INT(8) NOT NULL,
+    branch_name VARCHAR(15),
+    balance INT(8),
+    date DATE,
+    PRIMARY KEY(account_number),
+    FOREIGN KEY(branch_name)
+    	REFERENCES branch(branch_name)
+    );
+	
+CREATE TABLE loan
+(
+    loan_number INT(8) NOT NULL,
+    branch_name VARCHAR(15),
+    amount INT(8),
+    PRIMARY KEY(loan_number),
+    FOREIGN KEY(branch_name)
+    	REFERENCES branch(branch_name)
+    );
+	
+CREATE TABLE depositor
+(
+    customer_name VARCHAR(15),
+    account_number INT(8),
+    
+    PRIMARY KEY(customer_name,account_number),
+    FOREIGN KEY(customer_name)
+    	REFERENCES customer(customer_name),
+    FOREIGN KEY(account_number)
+    	REFERENCES account(account_number)
+    );
+	
+CREATE TABLE borrower
+(
+    customer_name VARCHAR(15),
+    loan_number INT(8),
+    
+    PRIMARY KEY(customer_name,loan_number),
+    FOREIGN KEY(customer_name)
+    	REFERENCES customer(customer_name),
+    FOREIGN KEY(loan_number)
+    	REFERENCES loan(loan_number)
+    );
+	
+INSERT INTO customer VALUES
+	("Amit","Sarafa","Patna"),
+    ("Bani","Civil Lines","Delhi"),
+    ("Charu",NULL,"Raipur"),
+    ("Jai","South Street","Mumbai"),
+    ("Rahul","Vijay Nagar","Jabalpur"),
+    ("Priya","Main Street","Bangalore"),
+    ("Yash","Hill Road","Nagpur"),
+    ("Vinay","Main Street","Bangalore"),
+    ("Anjali","Mall Road","Patna"),
+    ("Divya",NULL,"Raipur"),
+    ("Rohit","Sadar","Jabalpur"),
+    ("Sakshi","Park Street","Kolkata");
+	
+
+	
+INSERT INTO branch VALUES
+	("Stadium","Delhi",710000),
+	("Wright Town","Delhi",9000000),
+	("Mehgawan","Hyderabad",400000),
+	("North Town","Raipur",3700000),
+	("S Street","Hyderabad",1700000),
+	("Pownal","Bilaspur",300000),
+	("Cross Square","Nagpur",2100000),
+	("Napier Town","Hyderabad",8000000);
+	
+INSERT INTO account VALUES
+	(101,"Wright Town",500,"2011-02-05"),
+	(215,"Mehgawan",700,"2012-07-03"),
+	(102,"S Street",400,"2010-08-06"),
+	(305,"Napier Town",350,"2009-06-04"),
+	(201,"Stadium",900,"2010-04-09"),
+	(222,"Cross Square",700,"2011-11-08"),
+	(217,"Stadium",750,"2012-10-02");
+	
+INSERT INTO loan VALUES
+	(11,"Napier Town",900),
+	(14,"Wright Town",1500),
+	(15,"S Street",1500),
+	(16,"S Street",1300),
+	(17,"Wright Town",1000),
+	(23,"Cross Square",2000),
+	(93,"Mehgawan",500);
+	
+INSERT INTO borrower VALUES
+	("Amit",16),
+	("Charu",93),
+	("Priya",15),
+	("Yash",14),
+	("Vinay",17),
+	("Divya",11),
+	("Divya",23),
+	("Sakshi",17);
+  
+INSERT INTO depositor VALUES
+	("Priya",102),
+    ("Yash",101),
+    ("Yash",201),
+	("Vinay",217),
+    ("Anjali",222),
+    ("Divya",217),
+    ("Rohit",305);
